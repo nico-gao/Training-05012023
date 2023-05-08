@@ -277,7 +277,7 @@
 
 // array
 
-const arr = [1, 2, 3];
+// const arr = [1, 2, 3];
 
 // console.log(
 //   arr.map((value, index, array) => {
@@ -305,64 +305,283 @@ const arr = [1, 2, 3];
 
 // console.log(arr);
 
-console.log(
-  arr.forEach((value, index, array) => {
-    console.log(value, index, array);
-    return value * 2;
-  })
-);
+// console.log(
+//   arr.forEach((value, index, array) => {
+//     console.log(value, index, array);
+//     return value * 2;
+//   })
+// );
 
-Array.prototype.myForEach = function (cb) {
-  // console.log(cb(5));
-  // console.log(this);
-  // return "hi";
-  for (let i = 0; i < this.length; i++) {
-    cb(this[i], i, this);
-  }
-};
+// Array.prototype.myForEach = function (cb) {
+//   // console.log(cb(5));
+//   // console.log(this);
+//   // return "hi";
+//   for (let i = 0; i < this.length; i++) {
+//     cb(this[i], i, this);
+//   }
+// };
 
-console.log(
-  arr.myForEach((value, index, array) => {
-    console.log(value, index, array);
-    return value * 2;
-  })
-);
+// console.log(
+//   arr.myForEach((value, index, array) => {
+//     console.log(value, index, array);
+//     return value * 2;
+//   })
+// );
 
-Array.prototype.myMap = function (cb) {
-  const result = [];
-  for (let i = 0; i < this.length; i++) {
-    const newValue = cb(this[i], i, this);
-    result.push(newValue);
-  }
-  return result;
-};
+// Array.prototype.myMap = function (cb) {
+//   const result = [];
+//   for (let i = 0; i < this.length; i++) {
+//     const newValue = cb(this[i], i, this);
+//     result.push(newValue);
+//   }
+//   return result;
+// };
 
-console.log(
-  arr.map((value, index, array) => {
-    console.log(value, index, array);
-    return value * 2;
-  })
-);
-console.log(
-  arr.myMap((value, index, array) => {
-    console.log(value, index, array);
-    return value * 2;
-  })
-);
+// console.log(
+//   arr.map((value, index, array) => {
+//     console.log(value, index, array);
+//     return value * 2;
+//   })
+// );
+// console.log(
+//   arr.myMap((value, index, array) => {
+//     console.log(value, index, array);
+//     return value * 2;
+//   })
+// );
 
-// reduce, filter, concat, find, slice, splice, some, every...
+// // reduce, filter, concat, find, slice, splice, some, every...
 
-// reduce
+// // reduce
 
-let sum = 0;
-for (let i = 0; i < arr.length; i++) {
-  sum += arr[i];
+// let sum = 0;
+// for (let i = 0; i < arr.length; i++) {
+//   sum += arr[i];
+// }
+
+// console.log(sum);
+
+// sum = arr.reduce((acc, cur, index, array) => {
+//   return acc + cur;
+// }, 0);
+
+// console.log(sum);
+
+// ES6
+// rest operator, spread operator, destructuring, class, arrow function, promise
+
+// function foo(val1, val2, val3, val4, val5) {
+//   console.log(arguments); // object, array-like
+//   console.log(arguments[0], arguments[4]);
+// }
+
+// foo(1, 2, 3, 4, 5, 6);
+
+// // rest operator
+// function foo1(...args) {
+//   console.log(args);
+// }
+
+// foo1(1, 2, 3, 4, 5, 6);
+
+// function foo2(val1, val2, ...args) {
+//   console.log(args);
+// }
+
+// foo2(1, 2, 3, 4, 5, 6, 7);
+
+// // spread operator ...
+// const arr = [1, 2, 3, [4]]; // => 1, 2, 3
+// const arr2 = [...arr]; // new array
+// console.log(arr, arr2);
+
+// console.log(arr[3] === arr2[3]); // true
+// // shallow copy or depp copy
+// // shallow copy - create a copy that it's properties will point to the same references as the properties from the original object
+// // deep copy - they won't point to the same references
+// const a = { name: "nicole" };
+// const b = a;
+// b.name = "adam";
+// console.log(a, b);
+
+// const c = { ...a };
+// c.name = "new name";
+// console.log(a === c);
+
+// const d = { name: { value: "nicole" } };
+// const e = { ...d };
+// e.name.value = "new name";
+// console.log(d.name === e.name);
+
+// // strict/loose comparison => primitive data types
+// // shallow/deep comparison
+// console.log(a === c);
+// console.log(a == c);
+
+// const obj = { name: "nicole", age: 18 };
+// const obj1 = { ...obj, name: "adam" };
+// console.log(obj1);
+
+// const a1 = [1, 2, 3];
+// const a2 = [4, 5, 6];
+// const a3 = [0, ...a1, 0, ...a2];
+// console.log(a3);
+// const a4 = [a1, a2];
+// console.log(a4);
+
+// // destructuring - declare variable names for us, get the values from the object/array
+// const obj2 = { name: "nicole", age: 18 };
+// const { name, age } = obj2;
+// console.log(name, age);
+// // const name1 = obj2.name1;
+// // const age = obj2.age;
+
+// const arr3 = [1, () => {}];
+// const [state, useState] = arr3;
+// console.log(state, useState);
+
+// const { name: name2, age: age2 } = obj2; // rename the variable
+// console.log(name2, age2);
+
+/* arrow function vs regular function 
+1. syntax
+2. 'this': regular - refering to the object that's calling the function
+           arrow function - refer to the 'this' from the outer context
+3. arguments only works in regular functions
+*/
+
+// this - refering to the object that's calling the function
+
+// const obj = {
+//   name: "nicole",
+//   foo: function () {
+//     console.log(this);
+//     const foo2 = () => {
+//       console.log(this);
+//     };
+//     foo2();
+//   },
+// };
+
+// const obj2 = {
+//   name: "nicole",
+//   foo: () => {
+//     console.log(this);
+//   },
+// };
+
+// obj.foo();
+// obj2.foo();
+
+// const func = () => {
+//   console.log(arguments);
+// };
+
+// func(1, 2, 3);
+
+// closure - give access of any outer function scope to inner function
+// why - to create a pirvate scope
+function foo() {
+  // >>>
+  let x = 1;
+  let y = 2;
+  // <<< closure
+  return function () {
+    console.log(x);
+  };
 }
 
-console.log(sum);
+let x = foo();
+x();
 
-sum = arr.reduce((acc, cur, index, array) => {
-  return acc + cur;
-}, 0);
+// iife - immediately invoked function expression
+// the function is invoked immediately after it's defined
 
-console.log(sum);
+(function foo2() {
+  console.log("hello");
+})();
+
+let counter = (() => {
+  let count = 0;
+  return {
+    getCount() {
+      return count;
+    },
+    increment() {
+      count++;
+    },
+  };
+})();
+
+console.log(counter.count); // undefined
+console.log(counter.getCount());
+counter.increment();
+console.log(counter.getCount());
+
+// iterate through objects
+const obj = { name: "nicole", age: 18 };
+
+// for ... in
+for (let key in obj) {
+  console.log(key, obj[key]);
+}
+
+// for ... of
+const array = [1, 2, 3];
+for (let val of array) {
+  console.log(val);
+}
+
+// Object.entries()
+console.log(Object.entries(obj));
+
+for ([key, val] of Object.entries(obj)) {
+  console.log(key, val);
+}
+
+// Object.keys()
+console.log(Object.keys(obj));
+let keys = Object.keys(obj);
+
+// defined our own forEach on Object
+Object.prototype.forEach = function (cb) {
+  let keys = Object.keys(this);
+  for (let i = 0; i < keys.length; i++) {
+    cb(keys[i], this[keys[i]]);
+  }
+};
+
+const obj2 = { name: "nicole", age: 18 };
+obj2.forEach((key, val) => {
+  console.log(key, val);
+});
+
+Array.prototype.mySplice = function (start, deleteCount, ...items) {
+  let tempArr;
+  let removedElements;
+  if (deleteCount !== undefined) {
+    removedElements = this.slice(start, start + deleteCount);
+    tempArr = [...this.slice(0, start), ...this.slice(start + deleteCount)];
+  } else {
+    removedElements = [];
+  }
+
+  if (items.length !== 0) {
+    tempArr = [
+      ...this.slice(0, start),
+      ...items,
+      ...this.slice(start + deleteCount),
+    ];
+  }
+  this.length = tempArr.length;
+  tempArr.forEach((element, index) => {
+    this[index] = element;
+  });
+  return removedElements;
+};
+
+const arr = [1, 2, 3];
+console.log(arr);
+let removed = arr.mySplice(1, 2, 4);
+console.log(arr);
+console.log(removed);

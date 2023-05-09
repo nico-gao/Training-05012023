@@ -481,107 +481,107 @@
 
 // closure - give access of any outer function scope to inner function
 // why - to create a pirvate scope
-function foo() {
-  // >>>
-  let x = 1;
-  let y = 2;
-  // <<< closure
-  return function () {
-    console.log(x);
-  };
-}
+// function foo() {
+//   // >>>
+//   let x = 1;
+//   let y = 2;
+//   // <<< closure
+//   return function () {
+//     console.log(x);
+//   };
+// }
 
-let x = foo();
-x();
+// let x = foo();
+// x();
 
-// iife - immediately invoked function expression
-// the function is invoked immediately after it's defined
+// // iife - immediately invoked function expression
+// // the function is invoked immediately after it's defined
 
-(function foo2() {
-  console.log("hello");
-})();
+// (function foo2() {
+//   console.log("hello");
+// })();
 
-let counter = (() => {
-  let count = 0;
-  return {
-    getCount() {
-      return count;
-    },
-    increment() {
-      count++;
-    },
-  };
-})();
+// let counter = (() => {
+//   let count = 0;
+//   return {
+//     getCount() {
+//       return count;
+//     },
+//     increment() {
+//       count++;
+//     },
+//   };
+// })();
 
-console.log(counter.count); // undefined
-console.log(counter.getCount());
-counter.increment();
-console.log(counter.getCount());
+// console.log(counter.count); // undefined
+// console.log(counter.getCount());
+// counter.increment();
+// console.log(counter.getCount());
 
-// iterate through objects
-const obj = { name: "nicole", age: 18 };
+// // iterate through objects
+// const obj = { name: "nicole", age: 18 };
 
-// for ... in
-for (let key in obj) {
-  console.log(key, obj[key]);
-}
+// // for ... in
+// for (let key in obj) {
+//   console.log(key, obj[key]);
+// }
 
-// for ... of
-const array = [1, 2, 3];
-for (let val of array) {
-  console.log(val);
-}
+// // for ... of
+// const array = [1, 2, 3];
+// for (let val of array) {
+//   console.log(val);
+// }
 
-// Object.entries()
-console.log(Object.entries(obj));
+// // Object.entries()
+// console.log(Object.entries(obj));
 
-for ([key, val] of Object.entries(obj)) {
-  console.log(key, val);
-}
+// for ([key, val] of Object.entries(obj)) {
+//   console.log(key, val);
+// }
 
-// Object.keys()
-console.log(Object.keys(obj));
-let keys = Object.keys(obj);
+// // Object.keys()
+// console.log(Object.keys(obj));
+// let keys = Object.keys(obj);
 
-// defined our own forEach on Object
-Object.prototype.forEach = function (cb) {
-  let keys = Object.keys(this);
-  for (let i = 0; i < keys.length; i++) {
-    cb(keys[i], this[keys[i]]);
-  }
-};
+// // defined our own forEach on Object
+// Object.prototype.forEach = function (cb) {
+//   let keys = Object.keys(this);
+//   for (let i = 0; i < keys.length; i++) {
+//     cb(keys[i], this[keys[i]]);
+//   }
+// };
 
-const obj2 = { name: "nicole", age: 18 };
-obj2.forEach((key, val) => {
-  console.log(key, val);
-});
+// const obj2 = { name: "nicole", age: 18 };
+// obj2.forEach((key, val) => {
+//   console.log(key, val);
+// });
 
-Array.prototype.mySplice = function (start, deleteCount, ...items) {
-  let tempArr;
-  let removedElements;
-  if (deleteCount !== undefined) {
-    removedElements = this.slice(start, start + deleteCount);
-    tempArr = [...this.slice(0, start), ...this.slice(start + deleteCount)];
-  } else {
-    removedElements = [];
-  }
+// Array.prototype.mySplice = function (start, deleteCount, ...items) {
+//   let tempArr;
+//   let removedElements;
+//   if (deleteCount !== undefined) {
+//     removedElements = this.slice(start, start + deleteCount);
+//     tempArr = [...this.slice(0, start), ...this.slice(start + deleteCount)];
+//   } else {
+//     removedElements = [];
+//   }
 
-  if (items.length !== 0) {
-    tempArr = [
-      ...this.slice(0, start),
-      ...items,
-      ...this.slice(start + deleteCount),
-    ];
-  }
-  this.length = tempArr.length;
-  tempArr.forEach((element, index) => {
-    this[index] = element;
-  });
-  return removedElements;
-};
+//   if (items.length !== 0) {
+//     tempArr = [
+//       ...this.slice(0, start),
+//       ...items,
+//       ...this.slice(start + deleteCount),
+//     ];
+//   }
+//   this.length = tempArr.length;
+//   tempArr.forEach((element, index) => {
+//     this[index] = element;
+//   });
+//   return removedElements;
+// };
 
-const arr = [1, 2, 3];
-console.log(arr);
-let removed = arr.mySplice(1, 2, 4);
-console.log(arr);
-console.log(removed);
+// const arr = [1, 2, 3];
+// console.log(arr);
+// let removed = arr.mySplice(1, 2, 4);
+// console.log(arr);
+// console.log(removed);

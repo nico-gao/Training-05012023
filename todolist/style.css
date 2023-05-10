@@ -1,0 +1,30 @@
+html{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.root{
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+
+}
+.root .todolist-container ul{
+  padding:15px;
+  margin: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  border: 1px black solid;
+  border-radius: 5px;
+}
+
+.root .todolist-container ul li{
+  display: flex;
+  justify-content: space-between;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 10px;
+}

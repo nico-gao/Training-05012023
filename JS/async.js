@@ -319,41 +319,38 @@
 //XMLHttpRequest(ajax: async javascript and xml)
 
 const XHR = (url, cb) => {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            // Typical action to be performed when the document is ready:
-            cb(xhttp.response);
-        }
-    };
-    xhttp.open("GET", url);
-    xhttp.send();
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // Typical action to be performed when the document is ready:
+      cb(xhttp.response);
+    }
+  };
+  xhttp.open("GET", url);
+  xhttp.send();
 };
 
 XHR("https://jsonplaceholder.typicode.com/todos/1", (data) => {
-    console.log(1, data);
+  console.log(1, data);
+  XHR("https://jsonplaceholder.typicode.com/todos/1", (data) => {
+    console.log(2, data);
     XHR("https://jsonplaceholder.typicode.com/todos/1", (data) => {
-        console.log(2, data);
+      console.log(3, data);
+      XHR("https://jsonplaceholder.typicode.com/todos/1", (data) => {
+        console.log(4, data);
         XHR("https://jsonplaceholder.typicode.com/todos/1", (data) => {
-            console.log(3, data);
-            XHR("https://jsonplaceholder.typicode.com/todos/1", (data) => {
-                console.log(4, data);
-                XHR("https://jsonplaceholder.typicode.com/todos/1", (data) => {
-                    console.log(5, data);
-                });
-            });
+          console.log(5, data);
         });
+      });
     });
+  });
 });
-
 
 //fetch, method, body, url
 
 //implement myFetch method
 
 //fetch function, 2 args,
-
-
 
 /* 
   1, 2, 5, 12, 3, 4, 6 data1, 7, 10, 8, 9

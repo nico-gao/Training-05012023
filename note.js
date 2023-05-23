@@ -30,3 +30,23 @@
  * Event bubbling
  *
  */
+
+/**
+ * webpack - bundler
+ * babel - compiler
+ *
+ * PWA - progressive web app
+ *
+ * synthetic event
+ *
+ * unidirection data flow
+ * props drilling
+ * state lifting
+ *
+ *         App
+ * Header       Counter
+ *
+ *
+ * state: we can update it, managed internally, when state changes, it will trigger components to re-render
+ * props: read only, managed externally, when props are changed when component re-renders, the components that are receiving the props will also re-render
+ */

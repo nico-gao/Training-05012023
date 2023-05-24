@@ -49,4 +49,15 @@
  *
  * state: we can update it, managed internally, when state changes, it will trigger components to re-render
  * props: read only, managed externally, when props are changed when component re-renders, the components that are receiving the props will also re-render
+ *
+ * what will cause components to re-render:
+ * 1. state/props update
+ * 2. parent component re-render
+ * 3. shouldComponentUpdate()
+ * 4. forceUpdate()
+ *
+ * virtual DOM - tree, contains nodes (createElement())
+ * copy of the real DOM
+ * diffing algorithm
+ * reconciliation
  */

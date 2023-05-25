@@ -1,28 +1,24 @@
 {
   "todos": [
     {
-      "content": "dfsdff",
+      "content": "1",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "content": "2",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "content": "3",
+      "completed": false,
       "id": 3
     },
     {
-      "content": "sadasd",
+      "content": "4",
+      "completed": false,
       "id": 4
-    },
-    {
-      "content": "eat dinner",
-      "id": 5
-    },
-    {
-      "content": "eat lunch",
-      "id": 6
-    },
-    {
-      "content": "a",
-      "id": 7
-    },
-    {
-      "content": "z",
-      "id": 8
     }
   ]
 }

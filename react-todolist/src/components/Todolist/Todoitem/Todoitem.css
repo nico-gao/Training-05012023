@@ -1,0 +1,14 @@
+.todoitem {
+  list-style: none;
+  width: 300px;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+span {
+  flex-grow: 1;
+}

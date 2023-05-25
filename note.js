@@ -60,4 +60,8 @@
  * copy of the real DOM
  * diffing algorithm
  * reconciliation
+ *
+ * HOC - higher order component
+ * a function takes a component, and returns another component with additional functionalities
+ *
  */

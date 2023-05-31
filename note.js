@@ -64,4 +64,11 @@
  * HOC - higher order component
  * a function takes a component, and returns another component with additional functionalities
  *
+ *
+ * useState
+ * useEffect
+ * useRef
+ * useCallback
+ * useMemo
+ *
  */

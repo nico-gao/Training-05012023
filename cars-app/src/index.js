@@ -3,25 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {
-  ClassApp,
-  HooksApp,
-  HooksApp2,
-  WrappedComponent,
-  // WrappedHooksComponent,
-} from "./components/HooksApp/HooksApp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const test = (
-  <>
-    <HooksApp />
-    <HooksApp2 />
-    {/* <ClassApp /> */}
-    {/* <WrappedHooksComponent /> */}
-    <WrappedComponent />
-  </>
-);
-root.render(test);
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

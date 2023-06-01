@@ -35,6 +35,11 @@
  * webpack - bundler
  * babel - compiler
  *
+ * module - code splitting, tree shaking
+ * import - ES module
+ * require - CommonJS
+ *
+ *
  * PWA - progressive web app
  *
  * synthetic event

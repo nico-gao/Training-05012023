@@ -6,6 +6,7 @@ import React, {
   useMemo,
 } from "react";
 
+
 // component 1 => counter 0
 // click alert button, then click add one
 // component 2 => counter 1

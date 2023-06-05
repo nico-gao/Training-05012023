@@ -3,23 +3,23 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { Provider } from 'react-redux'
 import {
-  ClassApp,
   HooksApp,
   HooksApp2,
   WrappedComponent,
   // WrappedHooksComponent,
 } from "./components/HooksApp/HooksApp";
+import Counter from "./components/Counter/Counter"
+import { store } from "./components/redux/redux";
+import FunctionalCounter from "./components/Counter/FunctionalCounter";
+import MyProvider from "./components/redux/MyProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const test = (
-  <>
-    <HooksApp />
-    <HooksApp2 />
-    {/* <ClassApp /> */}
-    {/* <WrappedHooksComponent /> */}
-    <WrappedComponent />
-  </>
+  <MyProvider store={store}>
+    <FunctionalCounter/>
+  </MyProvider>
 );
 root.render(test);
 

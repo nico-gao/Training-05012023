@@ -11,15 +11,15 @@ import {
   // WrappedHooksComponent,
 } from "./components/HooksApp/HooksApp";
 import Counter from "./components/Counter/Counter"
-import { store } from "./components/redux/redux";
 import FunctionalCounter from "./components/Counter/FunctionalCounter";
 import MyProvider from "./components/redux/MyProvider";
+import store from "./components/redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const test = (
-  <MyProvider store={store}>
+  <Provider store={store}>
     <FunctionalCounter/>
-  </MyProvider>
+  </Provider>
 );
 root.render(test);
 

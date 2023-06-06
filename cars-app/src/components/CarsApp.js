@@ -42,10 +42,20 @@ import { CarsContext } from "../CarsContext";
       single store
       reducer(pure function) will contain the logic of updating state
     
-    redux core
+    redux core()
+        createStore
+        redux devtool
+    
+    redux-thunk(middleware): dispatch action as a function
     
     React-redux
+        Provider
+        class: connect (mapStateToProps, mapDispatchToProps)
+        functional: useSelector, useDispatch
+    
+
     redux toolkit(RTK)
+
 
 
   third party library:

@@ -3,16 +3,19 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <NavLink to="searchbook" >search</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/wishlist" >wishlist</NavLink>
-                </li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul className="nav-list">
+                    <li>
+                        <NavLink to="searchbook" >search</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/wishlist" >wishlist</NavLink>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
     );
 };
 

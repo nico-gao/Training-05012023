@@ -11,7 +11,7 @@ const SearchBar = () => {
         dispatch(search());
     }
     return (
-        <div>
+        <div className="search-bar">
             <input value={keyword} onChange={(e)=>{dispatch(updateKeyword(e.target.value))}}/>
             <button onClick={handleSubmit}>search</button>
         </div>

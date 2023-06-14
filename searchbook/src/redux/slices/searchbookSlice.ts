@@ -8,7 +8,12 @@ export interface IBookItem {
         authors: string[] | undefined;
         title: string | undefined;
         publishedDate: string | undefined;
-        imageLinks: { smallThumbnail: string | undefined; thumbnail: string | undefined } | undefined;
+        imageLinks:
+            | {
+                  smallThumbnail: string | undefined;
+                  thumbnail: string | undefined;
+              }
+            | undefined;
     };
 }
 
@@ -16,12 +21,18 @@ interface SearchbookState {
     books: IBookItem[];
     keyword: string;
     isLoading: boolean;
+    itemsPerPage: number;
+    totalPages: number;
+    currentPage: number;
 }
 
 const initialState: SearchbookState = {
     books: [],
     keyword: "",
     isLoading: false,
+    itemsPerPage: 20,
+    totalPages: 1,
+    currentPage: 1,
 };
 
 export const search = createAsyncThunk<
@@ -35,13 +46,16 @@ export const search = createAsyncThunk<
         state: RootState;
     }
 >("searchbook/search", async (args, thunkAPI) => {
-    const { keyword } = thunkAPI.getState().searchbookSlice;
+    const { keyword, currentPage, itemsPerPage } =
+        thunkAPI.getState().searchbookSlice;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const maxResults = itemsPerPage;
     const result = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${keyword}&startIndex=0&maxResults=20`
+        `https://www.googleapis.com/books/v1/volumes?q=${keyword}&startIndex=${startIndex}&maxResults=${maxResults}`
     );
     const res = await result.json();
     console.log("res", res);
-    return res.items;
+    return res;
 });
 
 const searchbookSlice = createSlice({
@@ -51,6 +65,12 @@ const searchbookSlice = createSlice({
         updateKeyword: (state, action) => {
             state.keyword = action.payload;
         },
+        updatePage: (state, action) => {
+            const newPage = action.payload;
+            if (!(newPage > state.totalPages) && newPage >= 1) {
+                state.currentPage = action.payload;
+            }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -59,8 +79,10 @@ const searchbookSlice = createSlice({
             })
             .addCase(search.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.books = action.payload;
-                state.keyword = "";
+                state.books = action.payload.items;
+                state.totalPages = Math.ceil(
+                    action.payload.totalItems / state.itemsPerPage
+                );
             })
             .addCase(search.rejected, (state, action) => {
                 console.log("err", action.error.message);
@@ -70,6 +92,6 @@ const searchbookSlice = createSlice({
     },
 });
 
-export const { updateKeyword } = searchbookSlice.actions;
+export const { updateKeyword, updatePage } = searchbookSlice.actions;
 
 export default searchbookSlice.reducer;

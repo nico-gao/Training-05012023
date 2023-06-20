@@ -1,9 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-const Loader:FC = () => {
-  return (
-    <div className="lds-dual-ring"></div>
-  )
-}
+const Loader: FC = () => {
+  return <div className="lds-dual-ring" data-testid="loader"></div>;
+};
 
-export default Loader
+export default Loader;

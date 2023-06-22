@@ -1,9 +1,9 @@
 import React from "react";
-import SearchBar from "../components/SearchBar";
-import Booklist from "../components/Booklist";
+import SearchBar from "../../components/SearchBar";
+import Booklist from "../../components/Booklist";
 import {useSelector} from "react-redux"
-import { RootState } from "../redux/store";
-import { IBookItem } from "../redux/slices/searchbookSlice";
+import { RootState } from "../../redux/store";
+import { IBookItem } from "../../redux/slices/searchbookSlice";
 /* 
     startIndex: currentPage * itemsPerPage
     maxResult: 20

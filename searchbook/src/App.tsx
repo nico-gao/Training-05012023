@@ -4,9 +4,10 @@ import "./App.css";
 import { createBrowserRouter, Navigate, NavLink, RouterProvider } from "react-router-dom";
 
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Searchbook from "./pages/Searchbook";
-import Wishlist from "./pages/Wishlist";
+
 import Header from "./components/Header";
+import Searchbook from "./pages/searchbook/Searchbook";
+import Wishlist from "./pages/wishlist/Wishlist";
 
 
 
